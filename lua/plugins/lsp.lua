@@ -164,9 +164,9 @@ return {
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
-                "rust_analyzer",
-                "omnisharp",
-                "ocamllsp",
+                --"rust_analyzer",
+                --"omnisharp",
+                --"ocamllsp",
             },
             handlers = {
                 function(server_name)
@@ -174,6 +174,9 @@ return {
                 end,
             },
         })
+        
+        require("lspconfig")["rust_analyzer"].setup({})
+        require("lspconfig")["ts_ls"].setup({})
 
         lsp_zero.set_sign_icons({
             error = "✘",

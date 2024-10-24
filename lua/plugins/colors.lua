@@ -30,15 +30,17 @@ return {
     },
     {
         "rose-pine/neovim",
-        lazy = true,
         name = "rose-pine",
         config = function()
             require("rose-pine").setup({
                 extend_background_behind_borders = true,
                 styles = {
-                    transparency = true,
+                    transparency = false,
                 },
             })
+
+            
+            --vim.cmd.colorscheme("rose-pine")
         end
     },
     { "nyoom-engineering/oxocarbon.nvim" },
@@ -51,7 +53,7 @@ return {
                 hide_inactive_statusline = true
             })
 
-            vim.cmd.colorscheme("solarized-osaka-night")
+            --vim.cmd.colorscheme("solarized-osaka-night")
             --ColorMyPencils("solarized-osaka-night")
         end
     },
@@ -64,8 +66,21 @@ return {
                 }
             })
 
+            --ColorMyPencils("carbonfox")
             vim.cmd.colorscheme("carbonfox")
+        end
+    },
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        config = function()
+            require("catppuccin").setup({
+                flavour = "macchiato", -- latte, frappe, macchiato, mocha
+                transparent_background = true, -- disables setting the background color.
+            })
+
+            --vim.cmd.colorscheme("catppuccin")
             --ColorMyPencils("carbonfox")
         end
-    }
+    },
 }
