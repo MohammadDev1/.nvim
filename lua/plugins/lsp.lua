@@ -178,7 +178,7 @@ return {
         require("lspconfig")["rust_analyzer"].setup({})
         require("lspconfig")["ts_ls"].setup({})
         require("lspconfig")["glslls"].setup({})
-
+        
         lsp_zero.set_sign_icons({
             error = "✘",
             warn = "▲",
