@@ -115,6 +115,7 @@ return {
         "j-hui/fidget.nvim",
         "saadparwaiz1/cmp_luasnip",
         "onsails/lspkind.nvim",
+        "rafamadriz/friendly-snippets",
     },
 
     config = function()
@@ -176,6 +177,7 @@ return {
         })
         
         require("lspconfig")["rust_analyzer"].setup({})
+        require("lspconfig")["zls"].setup({})
         require("lspconfig")["ts_ls"].setup({})
         require("lspconfig")["glslls"].setup({})
         
@@ -187,8 +189,14 @@ return {
         })
         local cmp = require("cmp")
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
+        require("luasnip.loaders.from_vscode").lazy_load()
 
         cmp.setup({
+            snippet = {
+                expand = function(args)
+                    require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                end,
+            },
             sources = {
                 { name = "nvim_lsp" },
                 { name = "buffer" },
