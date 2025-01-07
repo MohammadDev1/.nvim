@@ -178,6 +178,7 @@ return {
         
         require("lspconfig")["rust_analyzer"].setup({})
         require("lspconfig")["zls"].setup({})
+        vim.cmd("let g:zig_fmt_autosave = 0")
         require("lspconfig")["ts_ls"].setup({})
         require("lspconfig")["glslls"].setup({})
         
